@@ -238,7 +238,7 @@ export default class RNPickerSelect extends PureComponent {
             Keyboard.dismiss();
         }
 
-        if (this.pickerRef && Platform.OS == 'android') this.pickerRef.focus();
+        if (this['pickerRef'] && Platform.OS == 'android') this.pickerRef.focus();
         const animationType =
             modalProps && modalProps.animationType ? modalProps.animationType : 'slide';
 
@@ -488,7 +488,7 @@ export default class RNPickerSelect extends PureComponent {
                 <View style={style.headlessAndroidContainer}>
                     {this.renderTextInputOrChildren()}
                     <Picker
-                        ref={(ref) => (this.pickerRef = ref)}
+                        ref={(ref) => (this['pickerRef'] = ref)}
                         style={[
                             Icon ? { backgroundColor: 'transparent' } : {}, // to hide native icon
                             defaultStyles.headlessAndroidPicker,
@@ -513,7 +513,7 @@ export default class RNPickerSelect extends PureComponent {
         return (
             <View style={[defaultStyles.viewContainer, style.viewContainer]}>
                 <Picker
-                    ref={(ref) => (this.pickerRef = ref)}
+                    ref={(ref) => (this['pickerRef'] = ref)}
                     style={[
                         Icon ? { backgroundColor: 'transparent' } : {}, // to hide native icon
                         style.inputAndroid,
